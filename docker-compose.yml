@@ -1,0 +1,13 @@
+version: '3'
+services:
+  kafka:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9092:9092
+    volumes:
+      - ./data:/var/lib/kafka/data
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
